@@ -1,35 +1,35 @@
-# 🌌 SpaceDevs - Explore o Céu Noturno de Exoplanetas
+# 🌌 SpaceDevs - Explore the Night Sky from Exoplanets
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![NASA API](https://img.shields.io/badge/NASA_API-0B3D91?style=for-the-badge&logo=nasa&logoColor=white)
 
-## 📝 Descrição
+## 📝 Description
 
-O **SpaceDevs** é uma aplicação voltada para a exploração astronômica e a educação científica. O projeto busca responder à intrigante pergunta: *Como seria o céu noturno se você estivesse em um dos muitos exoplanetas descobertos por astrônomos e missões espaciais?* Usando a vasta lista de mais de 5500 exoplanetas do Arquivo de Exoplanetas da NASA e os mais recentes catálogos estelares, a aplicação permite que estudantes escolham um exoplaneta e visualizem um mapa estelar interativo ou exportem uma imagem de alta qualidade para impressão ou visualização em computadores e displays de realidade virtual. 
+**SpaceDevs** is an application focused on astronomical exploration and scientific education. The project seeks to answer the intriguing question: *What would the night sky look like if you were standing on one of the many exoplanets discovered by astronomers and space missions?* Using the vast list of over 5500 exoplanets from the NASA Exoplanet Archive and the latest star catalogs, the application allows students to choose an exoplanet and view an interactive star chart or export a high-quality image for printing or viewing on computers and virtual reality displays.
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 Technologies Used
 
-- **JavaScript**: Linguagem principal utilizada no desenvolvimento da aplicação.
-- **React**: Biblioteca JavaScript para construção da interface do usuário.
-- **NASA API**: Utilizada para obter dados sobre exoplanetas e estrelas.
+- **JavaScript**: The main language used in the application development.
+- **React**: A JavaScript library for building user interfaces.
+- **NASA API**: Used to fetch data on exoplanets and stars.
 
-## 👥 Contribuidores
+## 👥 Contributors
 
-- [Alex Junior](https://github.com/AlexjrFS) - Desenvolvedor Principal
+- [Alex Junior](https://github.com/AlexjrFS) - Lead Developer
 
-## 🌟 Funcionalidades
+## 🌟 Features
 
-- Escolha de exoplanetas e visualização do céu noturno correspondente
-- Mapa estelar interativo com capacidade de desenhar e nomear constelações
-- Exportação de imagens de alta qualidade para impressão ou uso em realidade virtual
+- Choose exoplanets and view the corresponding night sky
+- Interactive star chart with the ability to draw and name constellations
+- Export high-quality images for printing or virtual reality use
 
-## 📈 Como Utilizar
+## 📈 How to Use
 
-1. Clone este repositório: `git clone https://github.com/AlexjrFS/spacedevs.git`
-2. Instale as dependências: `npm install`
-3. Execute a aplicação: `npm start`
-4. Acesse a interface em `http://localhost:3000`
+1. Clone this repository: `git clone https://github.com/AlexjrFS/spacedevs.git`
+2. Install dependencies: `npm install`
+3. Run the application: `npm start`
+4. Access the interface at `http://localhost:3000`
 
 ---
 

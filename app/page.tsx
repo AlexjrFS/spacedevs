@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useRef } from 'react';
 
 export default function Home() {
@@ -8,19 +9,11 @@ export default function Home() {
     o: string;
   }
 
-  // Referências aos elementos
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const warpRef = useRef<HTMLAnchorElement | null>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const warpButton = warpRef.current;
-
-    if (!canvas || !warpButton) return;
-
-    const c = canvas.getContext('2d');
-    if (!c) return;
-
+    const canvas = canvasRef.current!;
+    const c = canvas.getContext('2d')! ;
     const numStars = 1900;
     const radius = '0.' + Math.floor(Math.random() * 9) + 1;
     let focalLength = canvas.width * 2;
@@ -64,7 +57,6 @@ export default function Home() {
     function drawStars(): void {
       let pixelX: number, pixelY: number, pixelRadius: number;
     
-      // Redimensionar para a tela
       if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -103,16 +95,17 @@ export default function Home() {
     initializeStars();
     executeFrame();
     
-    const handleWarpClick = () => {
+    const handleScreenClick = () => {
+      console.log("Tela clicada");
       warp = warp === 1 ? 0 : 1;
       c.clearRect(0, 0, canvas.width, canvas.height);
       executeFrame();
     };
 
-    warpButton.addEventListener("click", handleWarpClick);
+    document.body.addEventListener("click", handleScreenClick);
     
     return () => {
-      warpButton.removeEventListener("click", handleWarpClick);
+      document.body.removeEventListener("click", handleScreenClick);
     };
   }, []);
 
@@ -120,8 +113,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div id='w'>
         <canvas ref={canvasRef} id="space"></canvas>
-        <a href="#" ref={warpRef} id="warp">WARP SPEED</a>
-      </div>
+      </div> 
     </main>
   );
 }

@@ -22,7 +22,7 @@ export default class planetasService{
 
     const mapRes = res.map(res => ({
         id: res.id,
-        nome: res.nome
+        name: res.name
     }));
     
     return mapRes

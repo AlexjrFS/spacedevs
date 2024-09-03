@@ -25,7 +25,7 @@ export default class PlanetasController {
   public async findPlanetaById(req: Request,res: Response){
       try{
       const planetaService = planetasService.getInstance();
-      const id = req.params.id;
+      const id = parseInt(req.params.id, 10);
       if(!id){
           res.status(400).send({err:"planeta nao encontrado"})
       }

@@ -6,9 +6,6 @@ import planetasService from "../service/planetsService";
 
 export default class PlanetasController {
   private static instance: PlanetasController;
-  private constructor(){
-
-  }
 
   public static getInstance(){
       if(!PlanetasController.instance){
@@ -17,22 +14,19 @@ export default class PlanetasController {
       return PlanetasController.instance;
   }
 
-  public async listPlaneta(req: Request,res: Response){
+  public async PlanetaById(req: Request,res: Response){
+    try{
       const planetaService = planetasService.getInstance();
-      res.json(await planetaService.listPlanetas());
-  }
-
-  public async findPlanetaById(req: Request,res: Response){
-      try{
-      const planetaService = planetasService.getInstance();
-      const id = parseInt(req.params.id, 10);
-      if(!id){
-          res.status(400).send({err:"planeta nao encontrado"})
-      }
-      res.json(await planetaService.findPlanetaById(id));
+      const id = parseInt(req.params.id);
+      return res.json(await planetaService.findPlanetaById(id));
     }catch(err){
         console.log(err)
         return res.status(400).send({err:"nao foi possivel encontrar o planeta"})
     }
   }
+
+  // public async listPlaneta(req: Request,res: Response){
+  //   const planetaService = planetasService.getInstance();
+  //   res.json(await planetaService.listPlanetas());
+  // }
 }

@@ -1,6 +1,6 @@
-import {Request} from 'express';
 import { Planetas } from '../models/entity/Planetas';
-import PlanetasRepository from '../models/entity/repositores/RepositorioPlanetas';
+import PlanetasRepository from '../models/entity/repositories/RepositorioPlanetas';
+import { AppDataSource } from '../models/DataBase';
 
 export default class planetasService{
 
@@ -13,18 +13,8 @@ export default class planetasService{
   }
 
   public async findPlanetaById(id:number) : Promise<Planetas | null> {
-    const planeta = await PlanetasRepository.findOneBy({id}); 
-    return planeta
-  }
 
-  public async listPlanetas(){
-    const res =  await PlanetasRepository.find();
-
-    const mapRes = res.map(res => ({
-        id: res.id,
-        name: res.name
-    }));
-    
-    return mapRes
-}
+    const planeta = await PlanetasRepository.findOneBy({ id });
+    return planeta;
+  } 
 }

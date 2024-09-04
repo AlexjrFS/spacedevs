@@ -5,8 +5,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 export class Planetas {
   @PrimaryGeneratedColumn()
   id!: number;
-
+  
   @Column()
-  name!: string;
-
+  nome!: string;
 }

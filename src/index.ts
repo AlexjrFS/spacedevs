@@ -1,15 +1,15 @@
 import express, { Request, Response } from 'express';
-import planetaRouter from './routes/RotasPlanetas';
 import { AppDataSource } from './models/DataBase';
 import "reflect-metadata";
-
+import Rotas from './routes/Rotas';
 
 const app = express();
+
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-// app.use('/api', routes);
-app.use('/api/planetas',planetaRouter);
+
+app.use('/api', Rotas);
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);

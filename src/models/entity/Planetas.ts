@@ -1,11 +1,11 @@
 import "reflect-metadata";
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
-@Entity()
+@Entity("planetas")
 export class Planetas {
   @PrimaryGeneratedColumn()
   id!: number;
   
-  @Column()
+  @Column("varchar")
   nome!: string;
 }

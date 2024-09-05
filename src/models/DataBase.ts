@@ -1,6 +1,9 @@
 import { DataSource } from "typeorm";
-import { Planetas } from "./entity/Planetas"
-import  dotenv from 'dotenv'
+import { Planetas } from "./entity/Planetas";
+import { Estrelas } from "./entity/Estrelas";
+import  dotenv from 'dotenv';
+import { Constelacoes } from "./entity/Constelacoes";
+import { ConstelacoesEstrelas } from "./entity/ConstelacoesEstrelas";
 
 dotenv.config()
 
@@ -12,9 +15,8 @@ export const AppDataSource = new DataSource({
   password: process.env.PASSWORD,
   database: "base",
   logging: true,
-  entities: [Planetas],
+  entities: [Planetas, Estrelas, Constelacoes, ConstelacoesEstrelas],
   subscribers: [],
-  migrations: []
 });
 
 AppDataSource.initialize().then(async () => {

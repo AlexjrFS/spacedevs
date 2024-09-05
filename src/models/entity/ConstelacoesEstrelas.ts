@@ -1,5 +1,6 @@
 import "reflect-metadata";
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne } from "typeorm";
+import { Constelacoes } from "./Constelacoes";
 
 @Entity("constelacao_estrelas")
 export class ConstelacoesEstrelas {

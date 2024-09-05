@@ -41,4 +41,18 @@ export default class ConstelacoesController {
       return res.status(400).send({err:"nao foi possivel encontrar as estrelas e suas cosntelacoes"})
     }
   }
+
+  public async saveConstelacaoAndEstrelas(req: Request, res: Response) {
+    const constelacoesService = ConstelacoesService.getInstance();
+    const constelacaoEstrelas = req.body;
+    const constelacaoCriada = await constelacoesService.saveConstelacaoAndEstrelas(constelacaoEstrelas);
+    res.json(constelacaoCriada)
+  }
+
+  public async saveConstelacao(req: Request, res: Response) {
+    const constelacoesService = ConstelacoesService.getInstance();
+    const constelacao = req.body;
+    const constelacaoCriada = await constelacoesService.saveConstelacao(constelacao);
+    res.json(constelacaoCriada)
+  }
 }

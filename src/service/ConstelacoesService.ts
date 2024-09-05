@@ -1,6 +1,8 @@
 import { Constelacoes } from "../models/entity/Constelacoes";
 import ConstelacoesRepositorio from "../models/entity/repositories/ConstelacoesRepositories";
 import ConstelacoesEstrelasRepositorio from "../models/entity/repositories/ConstelacoesEstrelasRepositorio";
+import { ConstelacoesEstrelas } from "../models/entity/ConstelacoesEstrelas";
+import ConstelacoesController from "../controller/ConstelacoesController";
 
 export default class ConstelacoesService{
   private constructor(){}
@@ -11,8 +13,8 @@ export default class ConstelacoesService{
     else return new ConstelacoesService();
   }
 
-  public async findConstelacoesByPlanetas(id:number){
-    const constelacoes = await ConstelacoesRepositorio.findBy({id});
+  public async findConstelacoesByPlanetas(planeta_id:number){
+    const constelacoes = await ConstelacoesRepositorio.findBy({planeta_id});
     const mapConstelacoes = constelacoes.map(constelacoes =>({
       id: constelacoes.id,
       nome: constelacoes.nome,
@@ -35,7 +37,55 @@ export default class ConstelacoesService{
       constelacao_id: estrelasConstelacoes.constelacao_id,
       estrela_id: estrelasConstelacoes.estrela_id
     }));
-    
     return mapEstrelasConstelacoes
   }
+
+
+  public async saveConstelacaoAndEstrelas(constelacaoEstrelas: ConstelacoesEstrelas): Promise<ConstelacoesEstrelas> {
+    try {
+      const newconstelacaoEstrelas = new ConstelacoesEstrelas();
+  
+      if (typeof constelacaoEstrelas.estrela_id === 'number' && constelacaoEstrelas.estrela_id > 1) {
+        newconstelacaoEstrelas.constelacao_id = constelacaoEstrelas.constelacao_id;
+        newconstelacaoEstrelas.estrela_id = constelacaoEstrelas.estrela_id;
+        
+      } else if (Array.isArray(constelacaoEstrelas.estrela_id)) {
+        for (let index = 0; index < constelacaoEstrelas.estrela_id.length; index++) {
+          
+          const estrelaId = constelacaoEstrelas.estrela_id[index];
+          if (estrelaId !in this.findEstrelasByConstelacoes(newconstelacaoEstrelas.constelacao_id)){
+            const novaEntrada = new ConstelacoesEstrelas();
+            novaEntrada.constelacao_id = constelacaoEstrelas.constelacao_id;
+            novaEntrada.estrela_id = estrelaId;
+            await ConstelacoesEstrelasRepositorio.save(novaEntrada);
+          } 
+        }
+  
+        return Promise.resolve(newconstelacaoEstrelas);
+      }
+      const savedConstelacaoAndEstrelas = await ConstelacoesEstrelasRepositorio.save(newconstelacaoEstrelas);
+      return Promise.resolve(savedConstelacaoAndEstrelas);
+    } catch (err) {
+      console.log("erro");
+      return Promise.reject(err);
+  }
+  }
+
+  public async saveConstelacao(constelacao: Constelacoes):Promise<Constelacoes>{
+    try{
+      const newConstelacao = new Constelacoes();
+
+      newConstelacao.id;
+      newConstelacao.nome = constelacao.nome;
+      newConstelacao.planeta_id = constelacao.planeta_id;
+
+      const saveConstelacao = await ConstelacoesRepositorio.save(newConstelacao);
+
+      return Promise.resolve(saveConstelacao);
+    } catch (err) {
+      console.log("erro");
+      return Promise.reject(err);
+  }
+  }
+
 }

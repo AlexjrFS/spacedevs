@@ -17,4 +17,7 @@ Rotas.get("/get-constelacoes-by-planetas/:id", ConstelacoesController.getInstanc
 
 Rotas.get("/get-estrelas-by-constelacoes/:id", ConstelacoesController.getInstance().findEstrelasByConstelacoes);
 
+Rotas.post("/save-estrelas-by-constelacoes/", ConstelacoesController.getInstance().saveConstelacaoAndEstrelas);
+
+Rotas.post("/save-constelacoes/", ConstelacoesController.getInstance().saveConstelacao);
 export default Rotas;

@@ -3,6 +3,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![NASA API](https://img.shields.io/badge/NASA_API-0B3D91?style=for-the-badge&logo=nasa&logoColor=white)
+<img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff" style="width:95px;"/> <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff" style="width:95px"/> <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff" style="width:125px"/>
 
 ## 📝 Description
 
@@ -10,13 +11,21 @@
 
 ## 🚀 Technologies Used
 
-- **JavaScript**: The main language used in the application development.
-- **React**: A JavaScript library for building user interfaces.
+- **React**: A TypeScript library for building user interfaces.
+-  **TypeScript**: Main language used to create the frontend design.
 - **NASA API**: Used to fetch data on exoplanets and stars.
+- **Python**: Used for data processing and projection.
+- **MySQL**: Used as a database to save Planets, Stars and Constellations.
+-  **JavaScript**: Used in connection and functions with the Database.
 
 ## 👥 Contributors
 
-- [Alex Junior](https://github.com/AlexjrFS) - Lead Developer
+- [Alex Junior](https://github.com/AlexjrFS) - Fullstack Developer
+- [André Moreira](https://github.com/AndreMoreira00) - Backend Developer and Data Scientist
+- [Gustavo Brito](https://github.com/ghsbrito) - Frontend Developer
+- [Henrique Marangoni](https://github.com/R1ck-dev) - Data Scientist
+- [Lucas Verissimo](https://github.com/lucas-carva) - Data Scientist
+- [Pedro Modesto](https://github.com/0pmm) - UI UX Designer
 
 ## 🌟 Features
 
@@ -40,13 +49,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
+npm i
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -71,4 +75,3 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 > **Nota:** Este projeto é projetado para fins educacionais e visa inspirar o interesse pela astronomia e exploração espacial entre estudantes.
-

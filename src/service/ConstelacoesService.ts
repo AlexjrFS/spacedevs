@@ -3,6 +3,7 @@ import ConstelacoesRepositorio from "../models/entity/repositories/ConstelacoesR
 import ConstelacoesEstrelasRepositorio from "../models/entity/repositories/ConstelacoesEstrelasRepositorio";
 import { ConstelacoesEstrelas } from "../models/entity/ConstelacoesEstrelas";
 import ConstelacoesController from "../controller/ConstelacoesController";
+import { Column } from "typeorm";
 
 export default class ConstelacoesService{
   private constructor(){}
@@ -88,4 +89,29 @@ export default class ConstelacoesService{
   }
   }
 
+  public async deleteConstelacao(id:number):Promise<void>{
+    await ConstelacoesRepositorio.delete(id);
+    await ConstelacoesEstrelasRepositorio.delete({constelacao_id:id});
+  }
+
+  public async findAllConstelacoes() {
+    const constelacoes = await ConstelacoesRepositorio.find(); 
+    const mapConstelacoes = constelacoes.map(constelacoes =>({
+      id: constelacoes.id,
+      nome: constelacoes.nome,
+      planeta_id: constelacoes.planeta_id,
+    }));
+    return mapConstelacoes
+  }
+
+  public async updateConstelacao(id:number,constelacao:Constelacoes):Promise<void>{
+    const constelacaoAlterada = await ConstelacoesRepositorio.findOneBy(({id}));
+    if(constelacaoAlterada){
+        constelacaoAlterada.nome = constelacao.nome;
+        await ConstelacoesRepositorio.save(constelacaoAlterada);
+    }
+    Promise.resolve();
+  }
+
+  
 }

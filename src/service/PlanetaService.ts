@@ -24,7 +24,7 @@ export default class PlanetasService{
       id: planetas.id,
       nome: planetas.nome
     }));
-    return planetas
+    return mapPlanetas
   }
   
 }

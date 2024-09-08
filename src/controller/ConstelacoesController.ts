@@ -55,4 +55,24 @@ export default class ConstelacoesController {
     const constelacaoCriada = await constelacoesService.saveConstelacao(constelacao);
     res.json(constelacaoCriada)
   }
+
+  public async deleteConstelacao(req: Request,res:Response){
+    const constelacaoService = ConstelacoesService.getInstance();
+    const id = parseInt(req.params.id);
+    await constelacaoService.deleteConstelacao(id);
+    res.json('Constelacao deletada');
+  }
+
+  public async findAllConstelacoes(req: Request,res: Response){
+    const constelacaoService = ConstelacoesService.getInstance();
+    res.json(await constelacaoService.findAllConstelacoes());
+  }
+
+  public async updateConstelacao(req:Request,res:Response){
+    const constelacaoService = ConstelacoesService.getInstance();
+    const id = parseInt(req.params.id);
+    const constelacao = req.body;
+    await constelacaoService.updateConstelacao((id), constelacao);
+    res.json('Atualização feita com sucesso!');
+  }
 }

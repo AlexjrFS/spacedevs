@@ -22,9 +22,6 @@ export class Estrelas {
   @Column("int")
   spread_radius!: number; 
 
-  // @ManyToOne(() => Planetas)
-  // planeta!: Planetas;
-
   @Column("int")
   id_conexao!: number;
 }

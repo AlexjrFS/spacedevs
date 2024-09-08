@@ -20,4 +20,11 @@ Rotas.get("/get-estrelas-by-constelacoes/:id", ConstelacoesController.getInstanc
 Rotas.post("/save-estrelas-by-constelacoes/", ConstelacoesController.getInstance().saveConstelacaoAndEstrelas);
 
 Rotas.post("/save-constelacoes/", ConstelacoesController.getInstance().saveConstelacao);
+
+Rotas.delete("/delete-constelacao/:id", ConstelacoesController.getInstance().deleteConstelacao);
+
+Rotas.get("/get-all-costelacoes", ConstelacoesController.getInstance().findAllConstelacoes);
+
+Rotas.put('/edita-constelacao/:id',ConstelacoesController.getInstance().updateConstelacao);
+
 export default Rotas;
